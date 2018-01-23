@@ -1,10 +1,11 @@
-FROM ruby:2.4-alpine
+FROM ruby:2.4-alpine3.7
 
 RUN echo 'gem: --no-document' >> /etc/gemrc
 
 # needed at runtime
 RUN apk add --no-cache \
-  libcurl
+  libcurl \
+  ca-certificates
 
 RUN apk add --no-cache --virtual build-dependencies \
   build-base \
